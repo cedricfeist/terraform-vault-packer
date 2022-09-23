@@ -16,6 +16,7 @@ terraform {
   }
 }
 
+#SHARE STATEFILE FOR THIS
 provider "vault" {
   address = data.terraform_remote_state.vault_infra.outputs.public_endpoint
   token   = data.terraform_remote_state.vault_infra.outputs.admin_token
@@ -26,7 +27,7 @@ provider "vault" {
 data "terraform_remote_state" "vault_infra" {
   backend = "remote"
   config = {
-    organization = "lomar"
+    organization = "cedric"
     workspaces = {
       name = "vault-config"
     }
