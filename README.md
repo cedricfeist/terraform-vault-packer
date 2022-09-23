@@ -31,6 +31,8 @@ terraform apply --auto-approve
 3. Change to directory **02.configure-hcp-vault**
 Create Workspace **vault-management**. Set up Secrets as Terraform variables in your workspace. This will be needed to configure secrets engines. AWS Secrets will be needed for configuring AWS Secrets Engine in HCP Vault and HCP Secrets for configuring kv2 engine. Make sure you have AWS Creds with required Roles set up to make this run in your pipeline. [AWS Policy and Roles Setup](https://www.vaultproject.io/docs/secrets/aws). Change general settings of Remote State Sharing in your "vault-config" workspace and set to specific workspace **"vault-management"**
 
+![image](https://user-images.githubusercontent.com/8341286/191980321-b53a5364-bcde-46bd-bb9d-b5f8d20deb11.png)
+
 Have a look in main.tf for configuring your HCP Vault Instance. Vault provider fetches output data from your statefile of your workspace "vault-config". As a rule, you would have to configure the environment variables in the [Vault provider settings](https://registry.terraform.io/providers/hashicorp/vault/latest/docs#provider-arguments), but with this setting you do not have to set up.
 
 ```r
