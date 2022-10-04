@@ -7,7 +7,6 @@ resource "vault_jwt_auth_backend" "github_actions" {
   bound_issuer       = "https://token.actions.githubusercontent.com"
   default_role       = "github-actions"
   namespace          = data.terraform_remote_state.vault_infra.outputs.namespace
-#  namespace          = vault_namespace.devops.path
 }
 
 resource "vault_jwt_auth_backend_role" "github_actions" {
