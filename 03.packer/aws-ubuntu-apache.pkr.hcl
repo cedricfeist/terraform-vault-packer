@@ -21,7 +21,6 @@ variable "region" {
 locals {
   timestamp = regex_replace(timestamp(), "[- TZ:]", "")
 }
-
 source "amazon-ebs" "eu-central-1" {
   ami_name      = "${var.ami_prefix}-${local.timestamp}"
   instance_type = "t2.micro"
