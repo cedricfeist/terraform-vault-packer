@@ -1,6 +1,5 @@
 
 # Variables File
-
 variable "environment" {
   description = "This prefix will be included in the name of most resources. Prod, Test/Dev"
   default = "Prod"
