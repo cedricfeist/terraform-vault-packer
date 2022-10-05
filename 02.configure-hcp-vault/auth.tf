@@ -12,7 +12,6 @@ resource "vault_jwt_auth_backend" "github_actions" {
 resource "vault_jwt_auth_backend_role" "github_actions" {
   backend        = vault_jwt_auth_backend.github_actions.path
   role_name      = "github-actions"
-#  token_policies = ["hcp-root"]
   token_policies = [vault_policy.vault_actions.name]
 
   bound_claims_type = "glob"
@@ -26,5 +25,4 @@ resource "vault_jwt_auth_backend_role" "github_actions" {
   role_type  = "jwt"
   token_ttl  = "1800"
   namespace  = data.terraform_remote_state.vault_infra.outputs.namespace
-  #  namespace  = vault_namespace.devops.path
 }

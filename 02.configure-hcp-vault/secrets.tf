@@ -7,7 +7,7 @@ resource "vault_aws_secret_backend" "aws" {
   region     = "eu-central-1"
   namespace  = data.terraform_remote_state.vault_infra.outputs.namespace
   #  namespace  = vault_namespace.devops.path
-
+  default_lease_ttl_seconds = 500
 }
 
 #AWS_ROLE_SETUP
@@ -16,8 +16,6 @@ resource "vault_aws_secret_backend_role" "role" {
   name            = "github-actions-aws"
   credential_type = "iam_user"
   namespace       = data.terraform_remote_state.vault_infra.outputs.namespace
-  #  namespace       = vault_namespace.devops.path
-
   policy_document = <<EOT
 {
   "Version": "2012-10-17",
