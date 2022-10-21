@@ -89,7 +89,6 @@ data "hcp_packer_iteration" "hashitalk" {
   bucket_name = var.bucket
   channel     = var.channel
 }
-
 data "hcp_packer_image" "hashitalk-image" {
   bucket_name    = var.bucket
   iteration_id   = data.hcp_packer_iteration.hashitalk.ulid
