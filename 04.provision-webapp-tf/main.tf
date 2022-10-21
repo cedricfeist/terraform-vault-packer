@@ -80,7 +80,6 @@ resource "aws_route_table" "hashitalk" {
     gateway_id = aws_internet_gateway.hashitalk.id
   }
 }
-
 resource "aws_route_table_association" "hashitalk" {
   subnet_id      = aws_subnet.hashitalk.id
   route_table_id = aws_route_table.hashitalk.id
